@@ -23,10 +23,13 @@
     "ws": "^8.18.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "set PORT=3007 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "cd server && npm start",
+    "kill": "taskkill /F /IM node.exe"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +51,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
+    "concurrently": "^9.2.1",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.18"
   }
